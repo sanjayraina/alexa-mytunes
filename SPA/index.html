@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>myTunes Music Player</title>
+   
+  <!-- stylesheets -->
+  <link rel="stylesheet" href="css/mytunes.css" type="text/css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+  
+   <!-- javascript libs -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-filestyle/2.1.0/bootstrap-filestyle.min.js"></script>
+  <script src="https://cdn.auth0.com/js/lock/11.6.0/lock.min.js"></script>
+
+  <!-- app javascript -->
+  <script src="js/mytunes.js"></script> 
+
+</head>
+
+<body>
+
+  <!-- Navigation bar at the top -->
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><img src="images/myTunesLogo.png" height="30" width="120" align="top" style="margin: 0 10px;" alt="myTunes!"></a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a id="login-as" href="#"><span class="glyphicon glyphicon-user"></span> Logged in as guest</a></li>
+        <li><a id="auth0-login" href="#"><span class="glyphicon glyphicon-log-in"> </span> Log in</a></li>
+        <li><a id="auth0-logout" href="#"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Content tabs -->
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+    <li id="nav-tab-upload"><a data-toggle="tab" href="#menu1">Upload</a></li>
+    <li id="nav-tab-search"><a data-toggle="tab" href="#menu2">Search</a></li>
+  </ul>
+
+  <div id="nav-tab-content" class="tab-content">
+
+    <!-- Home tab -->
+    <div id="home" class="tab-pane fade in active">
+      <h3>HOME</h3>
+      <p>Welcome to myTunes! <br>You can upload your music to S3, and then search and play selected tracks<br> Enjoy!</p>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h3>Upload tracks</h3>
+      <p>Here you can choose tracks to upload to S3</p>
+      <div class="form-group">
+
+        <div class="form-inline form-group">
+          <input id="upload-input" type="file" multiple="multiple" class="filestyle" data-buttonName="btn btn-primary" data-buttonBefore="true" data-buttonText="Choose files" data-placeholder="No files selected">
+        </div>
+
+        <div class="form-inline form-group">
+          <label for="input-album">Album:</label>
+          <input type="text" class="form-control" id="input-album">
+          <label for="input-album">Artist:</label>
+          <input type="text" class="form-control" id="input-artist">
+          <label for="input-genre">Genre:</label>
+          <select class="form-control" id="input-genre">
+            <option>Hindi Film</option>
+            <option>Hindi Pop</option>
+            <option>Pop</option>
+            <option>Rock</option>
+            <option>Reggae</option>
+            <option>Ghazal</option>
+            <option>Kashmiri</option>
+            <option>Sufi</option>
+          </select>
+          <div id="spinner" display='none'>
+             Uploading <img src="images/Spinner-1s-200px.gif" alt="Uploading" height="42" width="42">
+          </div>
+          <div id="upload-status" display='none'>
+          </div>
+        </div>
+    </div>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h3>Search and play tracks</h3>
+      <p>Here you can search tracks, play them or add them to playlists</p>
+
+      <div class="form-inline form-group">
+          <label for="search-attrib">Search for: </label>
+          <select class="form-control" id="search-attrib">
+            <option>Album</option>
+            <option>Artist</option>
+            <option>Track</option>
+            <option>Genre</option>
+            <option>Playlist</option>
+          </select>
+          <label for="search-contains">containing:
+          <input type="text" class="form-control" id="search-contains"> </label>
+          <a id="search-track-btn" href="#"><span class="glyphicon glyphicon-search"> </span> Search</a>
+      </div>
+
+      <table class="table table-bordered" = id="music-list-table">
+        <thead>
+          <tr>
+            <th>
+              <div class="all-checkbox">
+                <input type="checkbox" id="all-checkbox" value="select_all">
+              </div>
+            </th>
+            <th>Track</th>
+            <th>Album</th>
+            <th>Genre</th>
+            <th>Playlist</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+          <div id="player-status" display='none'>
+          </div>
+    </div>
+  </div>
+  <div class="mytunes-footer" id="mytunes-footer-play"> 
+    <a id="backward-track-btn" href="#"><i class="material-icons" style="font-size:24px">fast_rewind</i></a> 
+    <a id="stop-track-btn" href="#"><i class="material-icons" style="font-size:24px">stop</i></a> 
+    <a id="pause-track-btn" href="#"><i class="material-icons" style="font-size:24px">pause</i></a> 
+    <a id="play-track-btn" href="#"><i class="material-icons" style="font-size:24px">play_arrow</i></a>
+    <a id="forward-track-btn" href="#"><i class="material-icons" style="font-size:24px">fast_forward</i></a> 
+    &nbsp;
+    <a id="shuffle-track-btn" href="#"><i class="material-icons" style="font-size:24px">shuffle</i></a> 
+  </div>
+  <div class="mytunes-footer" id="mytunes-footer-upload"> 
+    <a id="clear-music-form" href="#"><i class="material-icons" style="font-size:24px">clear</i> Clear form </a>  &nbsp;
+    <a id="upload-music-btn" href="#"><i class="material-icons" style="font-size:24px">cloud_upload</i> Upload </a> 
+  </div>
+  <script>
+    mytunesInit();
+  </script>
+
+</body>
+</html>
