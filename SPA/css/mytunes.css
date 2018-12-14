@@ -1,0 +1,26 @@
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.file-field.big .file-path-wrapper {
+  height: 3.2rem; 
+}
+.file-field.big .file-path-wrapper .file-path {
+    height: 3rem; 
+}
+.mytunes-footer {
+  position: fixed;
+  left :0;
+  bottom : 0;
+  height : 40px;
+  width : 100%;
+  background-color: #ddd;;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#nav-tab-content {
+  margin: 20px;
+}

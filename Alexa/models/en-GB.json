@@ -1,0 +1,117 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "mytunes",
+      "types": [
+        {
+          "name": "ALBUMS",
+          "values": [
+            {
+              "id": null,
+              "name": {
+                "value": "Veer Zaara",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "Madno",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "Songs of Innocence",
+                "synonyms": []
+              }
+            }
+          ]
+        },
+        {
+          "name": "GENRES",
+          "values": [
+            {
+              "id": null,
+              "name": {
+                "value": "Hindi Film",
+                "synonyms": []
+              }
+            },
+            {
+              "id": null,
+              "name": {
+                "value": "English Pop",
+                "synonyms": []
+              }
+            }
+          ]
+        },
+        {
+          "name": "PLAYLISTS",
+          "values": [
+            {
+              "id": null,
+              "name": {
+                "value": "Sanjay",
+                "synonyms": []
+              }
+            }
+          ]
+        }
+      ],
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PreviousIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NextIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": ["Stop"]
+        },
+        {   
+          "name": "AMAZON.PauseIntent"
+        },
+        {   
+          "name": "AMAZON.ResumeIntent"
+        },
+        {
+          "name": "PlayTrackIntent",
+          "slots": [
+            {
+              "name": "Album",
+              "type": "ALBUMS"
+            },
+            {
+              "name": "Genre",
+              "type": "GENRES"
+            },
+            {
+              "name": "Playlist",
+              "type": "PLAYLISTS"
+            }
+          ],
+          "samples": [
+            "Play",
+            "Play from album {Album}",
+            "Play from genre {Genre}",
+            "Play from playlist {Playlist}"
+          ]
+        }
+      ]
+    }
+  }
+}

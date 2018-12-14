@@ -1,0 +1,41 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-GB": {
+          "summary": "A starter template for an Alexa audio streaming skill.",
+          "examplePhrases": [
+ 	    "Alexa, open myTunes",
+            "Alexa, play myTunes",
+            "Alexa, ask myTunes to play"
+          ],
+	  "keywords": [
+            "audio streaming",
+            "music",
+            "live music"
+          ],
+          "name": "myTunes",
+          "description": "Sample Full Description"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "No special instructions.",
+      "category": "STREAMING_SERVICE",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "sourceDir": "lambda/custom",
+          "uri": "ask-custom-myTunes-default"
+        },
+ 	"interfaces": [
+          {
+            "type": "AUDIO_PLAYER"
+          }
+        ]
+      }
+    },
+    "manifestVersion": "1.0"
+  }
+}
