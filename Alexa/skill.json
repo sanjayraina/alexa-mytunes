@@ -15,7 +15,8 @@
             "live music"
           ],
           "name": "myTunes",
-          "description": "Sample Full Description"
+          "description": "Sample Audio Streaming Player Skill",
+          "smallIconUri": "https://raw.githubusercontent.com/sanjayraina/alexa-mytunes/master/Alexa/images/myTunesIcon.png"
         }
       },
       "isAvailableWorldwide": true,
