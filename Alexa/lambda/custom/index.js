@@ -4,6 +4,8 @@ const https = require('https');
 
 var accessToken = "";
 
+const API_HOST = "<YOUR API HOST FQDN>";
+
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
@@ -290,9 +292,9 @@ function getTrackList(post_data) {
   var hdr_auth = "Bearer " + accessToken;
   return new Promise(((resolve, reject) => {
     const options = {
-      hostname: 'ojchgcz5tc.execute-api.eu-west-2.amazonaws.com',
+      hostname: API_HOST,
       port: 443,
-      path: '/dev/play',
+      path: '/dev/tracklist',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -332,7 +334,7 @@ function get_signed_url(track_id) {
 
   return new Promise(((resolve, reject) => {
     const options = {
-      hostname: 'ojchgcz5tc.execute-api.eu-west-2.amazonaws.com',
+      hostname: API_HOST,
       port: 443,
       path: '/dev/signedurl' + '?trackid=' + encodeURI(track_id),
       method: 'GET',

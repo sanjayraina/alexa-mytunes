@@ -9,21 +9,7 @@
             {
               "id": null,
               "name": {
-                "value": "Veer Zaara",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "Madno",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "Songs of Innocence",
+                "value": "The Joshua Tree",
                 "synonyms": []
               }
             }
@@ -35,14 +21,19 @@
             {
               "id": null,
               "name": {
-                "value": "Hindi Film",
+                "value": "Rock",
                 "synonyms": []
               }
-            },
+            }
+          ]
+        },
+        {
+          "name": "ARTIST",
+          "values": [
             {
               "id": null,
               "name": {
-                "value": "English Pop",
+                "value": "U2",
                 "synonyms": []
               }
             }
@@ -54,7 +45,7 @@
             {
               "id": null,
               "name": {
-                "value": "Sanjay",
+                "value": "favourites",
                 "synonyms": []
               }
             }
@@ -100,6 +91,10 @@
               "type": "GENRES"
             },
             {
+              "name": "Artist",
+              "type": "ARTIST"
+            },
+            {
               "name": "Playlist",
               "type": "PLAYLISTS"
             }
@@ -108,6 +103,7 @@
             "Play",
             "Play from album {Album}",
             "Play from genre {Genre}",
+            "Play songs by {Artist}",
             "Play from playlist {Playlist}"
           ]
         }
