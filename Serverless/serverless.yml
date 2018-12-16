@@ -7,6 +7,7 @@ provider:
   environment:
     AUTH0_CLIENT_ID: ${file(./secrets.json):AUTH0_CLIENT_ID}
     AUTH0_CLIENT_CERT: ${file(./secrets.json):AUTH0_CLIENT_CERT}
+    AUTH0_CLIENT_AUDIENCE: ${file(./secrets.json):AUTH0_CLIENT_AUDIENCE}
     DYNAMODB_TABLE: ${file(./secrets.json):DYNAMODB_TABLE}
     USERS_TABLE: ${file(./secrets.json):USERS_TABLE}
     UPLOAD_BUCKET: ${file(./secrets.json):UPLOAD_BUCKET}
@@ -34,19 +35,19 @@ functions:
   auth:
     handler: lambda/auth.auth
     cors: true
-  play:
-    handler: lambda/play.play
+  tracklist:
+    handler: lambda/tracklist.tracklist
     events:
       - http:
-          path: play
+          path: tracklist
           method: post
           authorizer: auth
           cors: true
-  upload:
-    handler: lambda/upload.upload
+  metadb:
+    handler: lambda/metadb.metadb
     events:
       - http:
-          path: upload
+          path: metadb
           method: get
           authorizer: auth
           cors: true
@@ -81,9 +82,25 @@ resources:
         RestApiId:
           Ref: 'ApiGatewayRestApi'
         StatusCode: '401'
-    TodosDynamoDbTable:
+    TracksDynamoDbTable:
       Type: 'AWS::DynamoDB::Table'
-      DeletionPolicy: Retain
+      DeletionPolicy: Delete
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: id
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${self:provider.environment.DYNAMODB_TABLE}
+    UsersDynamoDbTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Delete
       Properties:
         AttributeDefinitions:
           -
@@ -97,4 +114,3 @@ resources:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
         TableName: ${self:provider.environment.USERS_TABLE}
-

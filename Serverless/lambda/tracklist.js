@@ -5,7 +5,7 @@ var s3 = new AWS.S3();
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
 // Music API
-module.exports.play = (event, context, callback) => {
+module.exports.tracklist = (event, context, callback) => {
   console.log('event', event);
 
   var data = JSON.stringify(event.body);

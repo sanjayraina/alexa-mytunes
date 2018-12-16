@@ -72,7 +72,7 @@ function push_to_metadb(key, track, album, genre, artist) {
 
 
 // S3Policy API
-module.exports.upload = (event, context, callback) => {
+module.exports.metadb = (event, context, callback) => {
   console.log('event', event);
   var filename = null;
   var album = null;
@@ -108,7 +108,7 @@ module.exports.upload = (event, context, callback) => {
     return;
   }
 
-  console.log("upload lambda: artist = ", artist);
+  console.log("metadb lambda: artist = ", artist);
 
   var key = genre + '/' + album + '/' + filename;
 

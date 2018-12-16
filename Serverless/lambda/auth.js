@@ -76,7 +76,7 @@ module.exports.auth = (event, context, callback) => {
         }
         else if (result.Item) {
           const role = result.Item.role.S;
-          if ((endpoint.match(/^(play|signedurl)$/) && role.match(/^(User|Admin)$/)) || (endpoint == 'upload' && role == 'Admin')) {
+          if ((endpoint.match(/^(tracklist|signedurl)$/) && role.match(/^(User|Admin)$/)) || (endpoint == 'metadb' && role == 'Admin')) {
             console.log("authorizer: Found user in DB");
             callback(null, generatePolicy(decoded.sub, 'Allow', event.methodArn));
           }
