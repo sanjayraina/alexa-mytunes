@@ -68,7 +68,7 @@ function initLock() {
     var options = {
       auth: {
         scope: 'openid profile',
-        audience: 'https://player/'
+        audience: AUTH0_AUDIENCE
       }
     };
 
