@@ -1,6 +1,6 @@
-# Example Music Streamer using Alexa and AWS Serverless
+# Build a Music Streamer using Alexa and AWS Serverless
 
-This is a Music streaming app. It uses:
+This is an example of how to store and stream your music using AWS, Serverless services and an Alexa Skill. It consists of:
 - a Single Page Application using surge.sh to upload music and then select and play tracks
 - an Alexa Skill to select and play music tracks
 - AWS API Gateway to implement APIs to select tracks and get signed URLS to play and upload tracks
@@ -240,7 +240,7 @@ The Serverless framework service above creates a Dynamo DB table to list users t
 Use the following procedure.
 - decide on what user account you are going to use. I.e. one of a social media accounts or a local account created on Auth0.
 - Use this account to log in to the SPA page (e.g. mytunes.surge.sh)
-- On successful login, click on *Logged in as..* to bring up a pop up with the account details. Copy this.
+- On successful login, click on *Logged in as..* to bring up a pop up with the User Id. Copy the value.
 - Log in to the AWS console and head over to Dynamo DB. In the users table, create the following record:
 > id = <The userid displayed in popup>
 > name = <Your Name>

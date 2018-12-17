@@ -43,6 +43,9 @@ function refreshUI() {
     // show name
     document.getElementById('login-as').textContent = 'Logged in as: ' + profile.name;
     document.getElementById('login-as').style.display = 'flex';
+    document.getElementById('login-as').addEventListener('click', () => {
+      alert('User Id: ' + profile.sub);
+    });
     $('#nav-tab-upload').show();            // Show the upload/search panes if logged in
     $('#nav-tab-search').show();
   }
