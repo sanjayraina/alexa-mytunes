@@ -71,64 +71,37 @@ In the AWS console create an IAM user and attach the following policy to it.
         {
             "Effect": "Allow",
             "Action": [
+                "cloudformation:CreateStack",
+		"cloudformation:DeleteStack",
+                "cloudformation:DescribeChangeSet",
+		"cloudformation:DescribeStackEvents",
+                "cloudformation:DescribeStackResource",
+                "cloudformation:DescribeStackResources",
+                "cloudformation:DescribeStacks",
+                "cloudformation:GetTemplate",
+                "cloudformation:ListStackResources",
+                "cloudformation:UpdateStack",
+		"cloudformation:ValidateTemplate",
                 "iam:GetPolicy",
                 "iam:GetPolicyVersion",
+                "iam:GetRole",
                 "iam:GetRolePolicy",
                 "iam:ListAttachedRolePolicies",
                 "iam:ListRolePolicies",
                 "iam:ListRoles",
                 "iam:PassRole",
                 "iam:CreateRole",
-                "iam:GetRole",
                 "iam:AttachRolePolicy",
-                "iam:DeleteRolePolicy"
-            ],
-            "Resource": "arn:aws:iam::*:role/*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "lambda:*"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "cloudformation:CreateStack",
-                "cloudformation:CreateChangeSet",
-                "cloudformation:ListStacks",
-                "cloudformation:ListStackResources",
-                "cloudformation:UpdateStack",
-                "cloudformation:DescribeStacks",
-                "cloudformation:DescribeStackResources",
-                "cloudformation:DescribeStackEvents",
-                "cloudformation:ValidateTemplate",
-                "cloudformation:DescribeChangeSet",
-                "cloudformation:ExecuteChangeSet",
-                "cloudformation:GetTemplate",
-                "cloudformation:GetTemplateSummary"
-            ],
-            "Resource": [
-                "*"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
+                "iam:PutRolePolicy",
+ 		"apigateway:*",
+                "cloudwatch:*",
                 "dynamodb:*",
+                "events:*",
+                "lambda:*",
+                "logs:*",
                 "s3:*"
             ],
             "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "logs:FilterLogEvents",
-                "logs:getLogEvents",
-                "logs:describeLogStreams"
-            ],
-            "Resource": "arn:aws:logs:*:*:log-group:/aws/lambda/*"
         }
     ]
 }
