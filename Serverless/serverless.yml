@@ -57,7 +57,10 @@ functions:
       - http:
           path: signedurl
           method: get
-          authorizer: auth
+          authorizer:
+            name: auth
+            resultTtlInSeconds: 0
+            identitySource: method.request.header.Authorization
           cors: true
 
 resources:
@@ -114,3 +117,17 @@ resources:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
         TableName: ${self:provider.environment.USERS_TABLE}
+    S3Bucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:provider.environment.UPLOAD_BUCKET}
+        CorsConfiguration:
+          CorsRules:
+            - AllowedMethods:
+                - PUT
+              MaxAgeSeconds:
+                - "3000"
+              AllowedOrigins:
+                - "*"
+              AllowedHeader:
+                - "*"
