@@ -123,11 +123,11 @@ resources:
         BucketName: ${self:provider.environment.UPLOAD_BUCKET}
         CorsConfiguration:
           CorsRules:
-            - AllowedMethods:
+            -
+              AllowedMethods:
                 - PUT
-              MaxAgeSeconds:
-                - "3000"
+              MaxAge: 3000
               AllowedOrigins:
                 - "*"
-              AllowedHeader:
+              AllowedHeaders:
                 - "*"
