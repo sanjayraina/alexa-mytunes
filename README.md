@@ -37,12 +37,12 @@ $ npm install --global surge
 ## How to deploy
 
 ### Set up the various CLIs 
-- Install AWS CLI as outlined [here] (https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
+- Install AWS CLI as outlined [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
 ```bash
 $ pip install awscli --upgrade --user
 ```
 
-- Configure AWS CLI as outlined [here] (https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
+- Configure AWS CLI as outlined [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
 ```bash
 $ aws configure 
 ```
@@ -146,16 +146,16 @@ Create a new Application (API) with a name such as *MyTunes* and Identifier as *
 This will be used as Audience value later. A machine to machine application will be created.
 
 Make note of the Client Id and Client Secret. You will need these in the next step below.
-In the application page, click on *Show Advanced Setting* to reveal extra options. Click on the Certificates tab link. Download the certificate to a file, e.g. *auth0cert.pem*.
+On the application page, click on *Show Advanced Settings* to reveal extra options. Click on the Certificates tab link. Download the certificate to a file, e.g. *mysite.pem*.
 Convert the certificate to a string:
 ```bash
-$ awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' optumis.pem 
+$ awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' mysite.pem 
 ```
 
 You will need the certificate string in the next step below.
 
 ### Install Serverless APIs and Lambda functions
-Create a file called secrets.json in the Serverless directory and fill out values as follows:
+Create a file called *secrets.json* in the Serverless directory and fill out values as follows:
 ```bash
 {
   "AUTH0_CLIENT_ID": "<Enter the Auth0 Client Id from previous step>",
@@ -182,7 +182,7 @@ $ sls deploy
 This will create a set of API endpoints. Make note of these as you will need them in the next step.
 
 ### Install the Single Page App on Surge.sh
-Change directoru tp SPA and set the constants in js/mytunes.js as follows:
+Change directory to SPA and set the constants in js/mytunes.js as follows:
 ```bash
 const AUTH0_CLIENT_ID = "<Enter the Auth0 Client Id from previous step>";
 const AUTH0_DOMAIN = "<Enter the Auth0 domain from previous step>";
