@@ -215,10 +215,11 @@ Use the following procedure.
 - Use this account to log in to the SPA page (e.g. mytunes.surge.sh)
 - On successful login, click on *Logged in as..* to bring up a pop up with the User Id. Copy the value.
 - Log in to the AWS console and head over to Dynamo DB. In the users table, create the following record:
-> id = <The userid displayed in popup>
-> name = <Your Name>
-> role = User or Admin. User allows play only. Admin allow play and upload.
-
+```
+id = <The userid displayed in popup>
+name = <Your Name>
+role = User or Admin. User allows play only. Admin allow play and upload.
+```
 
 ## Take it for a spin
 
@@ -231,10 +232,10 @@ First, upload some music tracks using the SPA Web app. Use the browser to launch
 
 If you haven't already done so, install the Alexa app on your mobile device and make sure it is linked to your Amazon account and any Echo devices you want to use are registered with it. You should be able to see the newly installed Alexa skil in the Alexa app.
 
-> You:  "Alexa, open myTunes"
-> Alexa: "Welcome to the myTunes app. How can I help?"
-> You: "Play track from Album Songs of Innocence"
-> Alexa: "Playing track The Miracle from Album Songs of Innocence..."
+> You:  "Alexa, open myTunes"  
+> Alexa: "Welcome to the myTunes app. How can I help?"  
+> You: "Play track from Album Songs of Innocence"  
+> Alexa: "Playing track The Miracle from Album Songs of Innocence..."  
 
 ## Tidy up
 
