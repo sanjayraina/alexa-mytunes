@@ -190,7 +190,7 @@ Deploy the skill and lambda function with ASK CLI:
 $ cd Alexa
 $ ask deploy
 ```
-Link the skill with Auth0.  Log into [Alexa developer console] (https://developer.amazon.com/alexa/console/ask) and navigate to the skill. 
+Link the skill with Auth0.  Log into [Alexa developer console](https://developer.amazon.com/alexa/console/ask) and navigate to the skill. 
 Select the Account Linking tab to fill out the Auth0 application linking details.
 To obtain these details, refer to the Auth0 application created earlier. Expand the advanced settings link and and go to the *Endpoints* section.
 
@@ -231,10 +231,10 @@ First, upload some music tracks using the SPA Web app. Use the browser to launch
 
 If you haven't already done so, install the Alexa app on your mobile device and make sure it is linked to your Amazon account and any Echo devices you want to use are registered with it. You should be able to see the newly installed Alexa skil in the Alexa app.
 
-> You:  "Alexa, open ServiceNow"
-> Alexa: "Welcome to the ServiceNow skill. How can I help?"
-> You: "Tell me the recent incidents"
-> Alexa: "Here are the 5 most recent incidents..."
+> You:  "Alexa, open myTunes"
+> Alexa: "Welcome to the myTunes app. How can I help?"
+> You: "Play track from Album Songs of Innocence"
+> Alexa: "Playing track The Miracle from Album Songs of Innocence..."
 
 ## Tidy up
 
